@@ -1,0 +1,14 @@
+{
+    "data": [
+        {"brand": "VW", "year": 2012, "color": "Orange", "vin": "dsad231ff", "category": "VI"},
+        {"brand": "Audi", "year": 2011, "color": "Black", "vin": "gwregre345", "category": "VI"},
+        {"brand": "Renault", "year": 2005, "color": "Gray", "vin": "h354htr", "category": "VI"},
+        {"brand": "BMW", "year": 2003, "color": "Blue", "vin": "j6w54qgh", "category": "VI"},
+        {"brand": "Mercedes", "year": 1995, "color": "Orange", "vin": "hrtwy34", "category": "VI"},
+        {"brand": "Volvo", "year": 2005, "color": "Black", "vin": "jejtyj", "category": "VI"},
+        {"brand": "Honda", "year": 2012, "color": "Yellow", "vin": "g43gr", "category": "VI"},
+        {"brand": "Jaguar", "year": 2013, "color": "Orange", "vin": "greg34", "category": "VI"},
+        {"brand": "Ford", "year": 2000, "color": "Black", "vin": "h54hw5", "category": "VI"},
+        {"brand": "Fiat", "year": 2013, "color": "Red", "vin": "245t2s", "category": "VI"}
+    ]
+}

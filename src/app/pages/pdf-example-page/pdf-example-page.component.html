@@ -1,0 +1,20 @@
+<p>
+  pdf-example-page works!
+</p>
+<div class="article">
+  <h1>{{ pais }}</h1>
+  <p>{{ body }}</p>
+
+  <div id="pdfContent">
+    <pdf-viewer [src]="dataPdf" 
+            [render-text]="true"
+            style="display: block;"
+            [original-size]="true">
+    </pdf-viewer>
+  </div>
+  <div>
+
+    <button (click)="printpdf();">Imprimir</button>
+  </div>
+
+</div>

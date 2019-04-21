@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<app-header [title]=title></app-header>
+
+<app-nav-bar class="navBar" [navBarOptions]="options" (optionPress)="navBarOptionHandler($event)"  ></app-nav-bar>
+
+<app-main>
+  
+  <router-outlet></router-outlet>
+
+</app-main>
+
+
+<app-footer [title]=title>
+</app-footer>

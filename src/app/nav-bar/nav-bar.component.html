@@ -1,0 +1,13 @@
+  <nav>
+    <div style="width: 100px">
+      <ul>
+
+
+        <app-nav-bar-item *ngFor="let option of navBarOptions" [title]="option.title"
+        (click)="optionHandler(option)"
+        > </app-nav-bar-item>
+
+        
+      </ul>
+  </div>
+  </nav>

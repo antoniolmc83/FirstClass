@@ -1,0 +1,31 @@
+<p>
+  table-example works!
+</p>
+<h3>Dynamic Columns</h3>
+<div style="display: inline-block; width: 900px; border: 1px solid blue">
+<p-table [columns]="cols" [value]="cars" [style]="{'width': '850px'}" [scrollable]="true" >
+    
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th [style.width]="getColumnSize('vin')" >
+                <div [ngClass]="'cell-' + mapColumnsSize['vin'].align + '-align'" >VIN</div>
+            </th>
+            <th *ngFor="let col of columns" [style.width]="getColumnSize(col.field)">
+                <div [ngClass]="'cell-' + mapColumnsSize[col.field].align + '-align'">{{col.header}}</div>
+            </th>
+            <th [style.width]="getColumnSize('action')">Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td [style.width]="getColumnSize('vin')" >
+                <div [ngClass]="'cell-' + mapColumnsSize['vin'].align + '-align'">{{rowData['vin']}}</div>
+            </td>
+            <td *ngFor="let col of columns" [style.width]="getColumnSize(col.field)">
+                <div [ngClass]="'cell-' + mapColumnsSize[col.field].align + '-align'">{{rowData[col.field]}}</div>
+            </td>
+            <td [style.width]="getColumnSize('action')">Action</td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>

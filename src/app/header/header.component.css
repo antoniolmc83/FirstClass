@@ -1,0 +1,24 @@
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 5px;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+}
+
+div {
+  border: 3px solid #73AD21;
+}
+
+.block {
+  background-color:black;
+  color:white;
+  padding:20px;
+  display: inline-block;
+}
+
+.mainContainerHor{
+  border: 1px solid blue;
+}
