@@ -3,6 +3,11 @@ import { Car } from "../domain/car";
 import data from "../../../assets/data/cars-small.json";
 import { Injectable } from "@angular/core";
 
+export function metric(target, key, properties){
+    console.log('test');
+    console.log(target);
+}
+
 @Injectable({
     providedIn: 'root',
   })
@@ -11,6 +16,7 @@ export class CarService {
 
     }
 
+    @metric
     getCarsSmall() {
         /*return this.http.get('/data/cars-small.json')
             .toPromise()

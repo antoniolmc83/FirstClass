@@ -1,7 +1,13 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
 
 import {Car} from '../../shared/domain/car';
 import { CarService } from 'src/app/shared/service/carservice';
+import { metric } from 'src/app/shared/service/decorator';
+
+import { text } from '@angular/core/src/render3';
+import { DomSanitizer } from '@angular/platform-browser';
+
+
 
 @Component({
   selector: 'app-table-example',
@@ -25,10 +31,21 @@ export class TableExampleComponent implements OnInit {
     action: {default: 100, min: 100, max: 100, align: 'right' }
   };
 
+  public text:string;
 
-  constructor(private cdRef:ChangeDetectorRef, private carService: CarService) {
+
+  constructor(private cdRef:ChangeDetectorRef, private carService: CarService,
+    protected sanitizer: DomSanitizer,
+    private zone:NgZone) {
     console.log(this.carService);
-    
+    this.text = 'Click this <a href="javascript: refresh(\'ss\')">link</a> here';
+
+    /*window.angularComponentRef = {
+      zone: this.zone, 
+      componentFn: (value) => this.refresh(value), 
+      component: this
+    };*/
+    console.log('reference added');
    }
 
   ngAfterViewChecked() {
@@ -51,13 +68,14 @@ export class TableExampleComponent implements OnInit {
     this.calcColumnSize();
   }
 
-
+  
   calcColumnSize(){
     const tableWidth = 850;
     this.avgColWidth = (tableWidth - this.mapColumnsSize.action.default - this.mapColumnsSize.vin.default) /this.cols.length;
     console.log('Size: ' + this.avgColWidth);
   }
 
+  
   getColumnSize(column){
     var size = 0;
     var min = this.mapColumnsSize[column].min;
@@ -75,5 +93,16 @@ export class TableExampleComponent implements OnInit {
     return size + 'px' ;
   }
 
+  getHtml(){
+    let output = this.sanitizer.bypassSecurityTrustHtml(this.text);
+    console.log(output);
+    return output;
+  }
+
+  @metric()
+  refresh(value){
+    console.log('calledFromOutside ' + this.avgColWidth );
+  }
+  
 
 }
