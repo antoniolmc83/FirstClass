@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Car } from "../domain/car";
 import data from "../../../assets/data/cars-small.json";
 import { Injectable } from "@angular/core";
+import { SequenceEventMetricService } from "../metric/sequence-event-metric.service";
 
 export function metric(target, key, properties){
     console.log('test');
@@ -12,7 +13,7 @@ export function metric(target, key, properties){
     providedIn: 'root',
   })
 export class CarService {
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private sequenceMetric:SequenceEventMetricService) {
 
     }
 
